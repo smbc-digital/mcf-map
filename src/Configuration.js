@@ -1,5 +1,5 @@
 import Leaflet from 'leaflet'
-import { mcflinePopup, mcfpointsPopup, beewaysPopup, beewayslinePopup, beewayspointPopup, mcfschemePopup } from './Popups'
+import { mcflinePopup, mcfpointsPopup, beewaysPopup, beewayslinePopup, beewayspointPopup, } from './Popups'
 import { mcflineStyle, beewaysStyle, beewaysConfLinesStyle } from './Styles'
 
 const Configuration = {

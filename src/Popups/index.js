@@ -51,21 +51,11 @@ const mcflinePopup = (feature, layer) => {
   
   layer.bindPopup(content)
  }
- const mcfschemePopup = (feature, layer) => {
-  
-  const content = `<div class="item"><i class="fa fa-bicycle" aria-hidden="true"></i><p class="title">&nbsp;Mayor's Challenge Fund</p>
-  <p></p>
-  <p class="info">Scheme: ${feature.properties.name}</p>
-  </div>`
-  
-  layer.bindPopup(content)
- }
 
  export {
   mcflinePopup,
   mcfpointsPopup,
   beewaysPopup,
   beewayspointPopup,
-  beewayslinePopup,
-  mcfschemePopup
+  beewayslinePopup
 }
