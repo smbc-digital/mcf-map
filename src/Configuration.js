@@ -27,6 +27,24 @@ const Configuration = {
             displayOverlay: true,
             visibleByDefault: true 
         },
+        /* {
+            key: 'MCF Under Construction Points',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=cycling:mcf_under_construction_points&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                maxZoom: 2,
+                pointToLayer: (feature, latlng) => {
+                          return Leaflet.circleMarker(latlng, {
+                            radius: 5,
+                              fillColor: '#34a02c',
+                              color: '#000',
+                              weight: 1,
+                              fillOpacity: 0.8
+                          })
+                        }
+                    },      
+            displayOverlay: true,
+            visibleByDefault: true
+        }, */
         {
             key: 'MCF Under Construction',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=cycling:mcf_under_construction&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
@@ -132,6 +150,19 @@ const Configuration = {
                 layers: 'base_maps:os1250_text',
                 format: 'image/png',
                 transparent: true
+            },
+            displayOverlay: false,
+            visibleByDefault: true 
+        },
+        {
+            key: 'uc_test',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wms?',
+            layerOptions: {
+                maxZoom: 20,
+                minzoom: 19,
+                layers: 'cycling:mcf_under_construction_points',
+                format: 'image/png',
+                transparent: false
             },
             displayOverlay: false,
             visibleByDefault: true 
