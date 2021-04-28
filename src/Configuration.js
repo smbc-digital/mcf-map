@@ -162,7 +162,7 @@ const Configuration = {
                 minzoom: 19,
                 layers: 'cycling:mcf_under_construction_points',
                 format: 'image/png',
-                transparent: false
+                transparent: true
             },
             displayOverlay: false,
             visibleByDefault: true 
