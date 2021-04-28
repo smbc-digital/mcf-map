@@ -24,8 +24,18 @@ const beewaysConfLinesStyle = {
     fillOpacity: 0
 }
 
+const underconstructionStyle = {
+    color: '#FF0000',
+    weight: 4,
+    opacity: 1,
+    fillColor: '#FF0000',
+    fillOpacity: 0,
+    dashArray: '5,10'
+}
+
 export {
 mcflineStyle,
 beewaysStyle,
-beewaysConfLinesStyle
+beewaysConfLinesStyle,
+underconstructionStyle
 }

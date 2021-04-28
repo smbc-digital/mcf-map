@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import { mcflinePopup, mcfpointsPopup, beewaysPopup, beewayslinePopup, beewayspointPopup, } from './Popups'
-import { mcflineStyle, beewaysStyle, beewaysConfLinesStyle } from './Styles'
+import { mcflinePopup, mcfpointsPopup, beewaysPopup, beewayslinePopup, beewayspointPopup, underconstructionPopup } from './Popups'
+import { mcflineStyle, beewaysStyle, beewaysConfLinesStyle, underconstructionStyle } from './Styles'
 
 const Configuration = {
     Map: {
@@ -15,12 +15,25 @@ const Configuration = {
     },
     DynamicData: 
     [
+       
         {
             key: 'MCF Scheme Areas',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=cycling:mcf_schemes&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 
                 maxZoom: 2
+
+            },
+            displayOverlay: true,
+            visibleByDefault: true 
+        },
+        {
+            key: 'MCF Under Construction',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=cycling:mcf_under_construction&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: underconstructionPopup,
+                maxZoom: 2,
+                style: underconstructionStyle
 
             },
             displayOverlay: true,
