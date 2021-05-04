@@ -56,7 +56,7 @@ const mcflinePopup = (feature, layer) => {
   
   const content = `<div class="item"><i class="fa fa-file-pdf-o" aria-hidden="true"></i><p class="title">&nbsp;MCF Under Construction</p>
   <p></p>
-  <p class="info"><a href= "${feature.properties.pdf_link}" target="_blank">Click here for scheme plan<a></p>
+  <p class="info"><a href= "https://spatialgeojson.s3-eu-west-1.amazonaws.com/webmapping/prod/mcf/${feature.properties.pdf_link}" target="_blank">Click here for scheme plan<a></p>
   </div>`
   
   layer.bindPopup(content)
