@@ -5,7 +5,6 @@ import Config from './Configuration.js'
 import { os_open } from './Tiles'
 import { AddLayerControlsLayers, AddLayerControlsOverlays, SearchControlOverlay } from './Controls'
 import leafletPip from '@mapbox/leaflet-pip'
-import locate from 'leaflet.locatecontrol'  // eslint-disable-line no-unused-vars
 
 function App() {
   const mapRef = useRef()
@@ -32,14 +31,7 @@ function App() {
     setStaticLayers()
     setDynamicLayers()
     setLayerControls()
-    setLocateControl()
   }, [])
-
-  const setLocateControl = () => {
-    if (Config.Map.EnableLocateControl) {
-      Leaflet.control.locate().addTo(mapRef.current) 
-    }
-  }
 
   const setLayerControls = () => {
     const controlLayers = AddLayerControlsLayers(Config.Map)
@@ -114,30 +106,19 @@ function App() {
     /** opens new popup with new content and binds to map, this is instead of using 
      * mapRef.current._popup.setConent as the popup is bound to the layer and not 
      * the map and will therefore close when you move the map */
-    if (layerContentInMap) {
+    if(layerContentInMap){
       Leaflet.popup()
         .setLatLng(onClickLatLng)
         .setContent(layerContentInMap)
         .openOn(mapRef.current)
-    } else {
+    }else{
       Leaflet.popup()
         .setLatLng(onClickLatLng)
         .setContent(mapRef.current._popup._content)
         .openOn(mapRef.current)
     }
-
-    panMap(onClickLatLng)
-
   }, [onClickLatLng])
-
-  const panMap = latLng => {
-    var px = mapRef.current.project(latLng)
-    px.y -= mapRef.current._popup._container.clientHeight/2
-    mapRef.current.panTo(mapRef.current.unproject(px),{animate: true})
-  }
-
   const onPopupOpenHandler = event =>  setOnClickLatLng(event.popup._latlng)
-  
   useEffect(() => {
     mapRef.current.addEventListener('popupopen', onPopupOpenHandler)
 
@@ -154,7 +135,7 @@ function App() {
   }
 
   return (
-    <div id="map" />
+    <div id="map" className={Config.Map.Class} />
   )
 }
 
