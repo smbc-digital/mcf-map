@@ -1,5 +1,5 @@
 import Leaflet from 'leaflet'
-import { mcflinePopup, mcfpointsPopup, beewaysPopup, beewayslinePopup, beewayspointPopup, underconstructionPopup } from './Popups'
+import { mcflinePopup, beewaysPopup, beewayslinePopup, beewayspointPopup, underconstructionPopup } from './Popups'
 import { mcflineStyle, beewaysStyle, beewaysConfLinesStyle, underconstructionStyle } from './Styles'
 
 const Configuration = {
@@ -47,19 +47,7 @@ const Configuration = {
             visibleByDefault: true
         }, */
         {
-            key: 'MCF Under Construction',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=cycling:mcf_under_construction&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: underconstructionPopup,
-                maxZoom: 2,
-                style: underconstructionStyle
-
-            },
-            displayOverlay: true,
-            visibleByDefault: true 
-        },
-        {
-            key: 'Beeways',
+            key: 'Bee Network',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=cycling:beeways&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: beewaysPopup,
@@ -70,7 +58,7 @@ const Configuration = {
             visibleByDefault: true 
         },
         {
-            key: 'Beeways Confirmed Lines',
+            key: 'Bee Network Under Development',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=cycling:beeways_confirmed_lines&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: beewayslinePopup,
@@ -81,7 +69,7 @@ const Configuration = {
             visibleByDefault: true 
         },
         {
-            key: 'Beeways Confirmed Points',
+            key: 'Crossings Under Development',
             url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=cycling:beeways_confirmed_points&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
                 onEachFeature: beewayspointPopup,
@@ -98,37 +86,49 @@ const Configuration = {
                     },      
             displayOverlay: true,
             visibleByDefault: true
-        },       
+        },
         {
-            key: 'MCF Lines',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=cycling:mcf_heaton_norris&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Bee Network Under Construction',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=cycling:mcf_under_construction&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: mcflinePopup,
+                onEachFeature: underconstructionPopup,
                 maxZoom: 2,
-                style: mcflineStyle
+                style: underconstructionStyle
+
             },
             displayOverlay: true,
             visibleByDefault: true 
-        },
-        {
-            key: 'MCF Points',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=cycling:mcf_points&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
-            layerOptions: {
-                onEachFeature: mcfpointsPopup,
-                maxZoom: 2,
-                pointToLayer: (feature, latlng) => {
-                          return Leaflet.circleMarker(latlng, {
-                            radius: 6,
-                              fillColor: '#ff0505',
-                              color: '#000',
-                              weight: 1,
-                              fillOpacity: 0.8
-                          })
-                        }
-                    },      
-            displayOverlay: true,
-            visibleByDefault: true
-        },
+        },       
+      //  {
+      //      key: 'MCF Lines',
+      //      url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=cycling:mcf_heaton_norris&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+      //      layerOptions: {
+      //          onEachFeature: mcflinePopup,
+     //           maxZoom: 2,
+      //          style: mcflineStyle
+      //     },
+      //      displayOverlay: true,
+      //      visibleByDefault: true 
+     //   },
+       // {
+      //      key: 'MCF Points',
+      //      url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=cycling:mcf_points&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+      //      layerOptions: {
+      //          onEachFeature: mcfpointsPopup,
+      //          maxZoom: 2,
+      //          pointToLayer: (feature, latlng) => {
+      //                    return Leaflet.circleMarker(latlng, {
+      //                      radius: 6,
+      //                        fillColor: '#ff0505',
+      //                        color: '#000',
+     //                         weight: 1,
+     //                         fillOpacity: 0.8
+     //                     })
+     //                   }
+     //               },      
+     //       displayOverlay: true,
+     //       visibleByDefault: true
+     //   },
         {
             key: 'os1250_line',
             url: 'https://spatial.stockport.gov.uk/geoserver/wms?',
