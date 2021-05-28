@@ -1,6 +1,6 @@
 import Leaflet from 'leaflet'
-import { mcflinePopup, beewaysPopup, beewayslinePopup, beewayspointPopup, underconstructionPopup } from './Popups'
-import { mcflineStyle, beewaysStyle, beewaysConfLinesStyle, underconstructionStyle } from './Styles'
+import { beewaysPopup, beewayslinePopup, beewayspointPopup, underconstructionPopup } from './Popups'
+import { beewaysStyle, beewaysConfLinesStyle, underconstructionStyle } from './Styles'
 
 const Configuration = {
     Map: {
