@@ -32,7 +32,7 @@
 
  const beewayspointPopup = (feature, layer) => {
   
-  const content = `<div class="item"><i class="fa fa-bug" aria-hidden="true"></i><p class="title">&nbsp;Crossings Under Construction</p>
+  const content = `<div class="item"><i class="fa fa-bug" aria-hidden="true"></i><p class="title">&nbsp;Crossings Under Development</p>
   <p></p>
   <p class="info">Scheme: ${feature.properties.scheme_name}</p>
   <p class="info">Details: ${feature.properties.additional_information}</p>
