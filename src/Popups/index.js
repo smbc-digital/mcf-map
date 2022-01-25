@@ -36,6 +36,7 @@
   <p></p>
   <p class="info">Scheme: ${feature.properties.scheme_name}</p>
   <p class="info">Details: ${feature.properties.additional_information}</p>
+  <p class="info"><a href= "https://spatialgeojson.s3-eu-west-1.amazonaws.com/webmapping/prod/mcf/${feature.properties.pdf_link}" target="_blank">Click here for scheme plan<a></p>
   </div>`
   
   layer.bindPopup(content)
